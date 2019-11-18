@@ -1,0 +1,15 @@
+.nav {
+    padding: 20px;
+}
+
+.item a.active {
+    color: #e9b7ff;
+}
+
+.item a {
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    font-family: "Times New Roman";
+    font-weight: bold;
+}

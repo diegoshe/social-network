@@ -1,0 +1,43 @@
+.appWrapper {
+    display: grid;
+    grid-template-areas:
+            " . header header header  ."
+            " . menu  content content  ."
+            " . footer content content  .";
+    grid-template-columns:  2fr 1fr 6fr 1fr  2fr ;
+    grid-template-rows:  1fr 8fr 1fr ;
+    grid-gap: 10px;
+    height: 98vh;
+    margin: 0;
+    justify-content: center;
+}
+
+.appHeader {
+    grid-area: header;
+    background-color: #fff27f;
+}
+
+.appMenu {
+    grid-area: menu;
+    background-color: aquamarine;
+    text-align: center;
+
+
+}
+
+.appContent {
+    grid-area: content;
+    background-color: chartreuse;
+
+
+}
+
+.appFooter {
+    grid-area: footer;
+    background-color: #d7b3ff;
+
+
+}
+
+
+

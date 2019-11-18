@@ -1,0 +1,29 @@
+.cover{
+    background-color: darkmagenta;
+    display: grid;
+    grid-template-areas:
+    "coverAva status";
+    grid-template-columns:  1fr 2fr;
+}
+
+.coverAva{
+    grid-area: coverAva;
+    margin: 10px 10px ;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.coverAva img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+
+.status{
+    grid-area: status;
+    margin: 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+}
