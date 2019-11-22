@@ -1,42 +1,42 @@
 .appWrapper {
     display: grid;
     grid-template-areas:
-            " . header header header  ."
+            "header header header header header "
             " . menu  content content  ."
             " . footer content content  .";
     grid-template-columns:  2fr 1fr 6fr 1fr  2fr ;
-    grid-template-rows:  1fr 8fr 1fr ;
-    grid-gap: 10px;
-    height: 98vh;
+    grid-template-rows:  42px 8fr 1fr ;
+    background: #edeef0;
+    height: 100vh;
     margin: 0;
     justify-content: center;
 }
-
 .appHeader {
     grid-area: header;
-    background-color: #fff27f;
-}
+    width: 100%;
+    height: 42px;
+    position: fixed;
+    background: #485563;
+    background: -webkit-linear-gradient(to right, #29323c, #485563);
+    background: linear-gradient(to right, #29323c, #485563);
 
+}
 .appMenu {
     grid-area: menu;
-    background-color: aquamarine;
+    margin: 10px 0;
+    background-color: white;
     text-align: center;
-
-
 }
-
 .appContent {
     grid-area: content;
-    background-color: chartreuse;
-
-
+    margin: 10px 0 0 10px;
+    background-color: white;
+    overflow: auto;
 }
-
 .appFooter {
     grid-area: footer;
-    background-color: #d7b3ff;
-
-
+    bottom: 0;
+    background-color: white;
 }
 
 

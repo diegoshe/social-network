@@ -1,25 +1,22 @@
 import React, {Component} from "react";
-import "./App.module.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-//import ProfileContainer from "./components/Profile/ProfileContainer";
-//import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, withRouter} from "react-router-dom";
-import LoginPage from "./components/Login/Login";
 import s from "./App.module.css";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/Preloader";
 import store from "./redux/redux-store";
-
+import {withSuspense} from "./hoc/withSuspense";
 
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
+const News = React.lazy(() => import('./components/News/News'));
+const Music = React.lazy(() => import('./components/Music/Music'));
+const Weather = React.lazy(() => import('./components/Weather/Weather'));
+const LoginPage = React.lazy(() => import('./components/Login/Login'));
 
 
 class App extends Component {
@@ -39,30 +36,19 @@ class App extends Component {
 				<div className={s.appMenu}><Navbar/></div>
 				<div className={s.appContent}>
 					<Route path='/profile/:userId?'
-					       render={() =>
-					       {
-						       return <React.Suspense fallback={<Preloader />}>
-							       <ProfileContainer/>
-						       </React.Suspense>
-					       }
-					       }/>
+					       render={withSuspense(ProfileContainer)}/>
 					<Route path='/dialogs'
-					       render={() =>
-					       {
-						       return <React.Suspense fallback={<Preloader />}>
-							       <DialogsContainer/>
-						       </React.Suspense>
-					       } }/>
+					       render={withSuspense(DialogsContainer)}/>
 					<Route path='/users'
-					       render={() => <UsersContainer/>}/>
+					       render={withSuspense(UsersContainer)}/>
 					<Route path='/news'
-					       render={() => <News/>}/>
+					       render={withSuspense(News)}/>
 					<Route path='/music'
-					       render={() => <Music/>}/>
-					<Route path='/settings'
-					       render={() => <Settings/>}/>
+					       render={withSuspense(Music)}/>
+					<Route path='/weather'
+					       render={withSuspense(Weather)}/>
 					<Route path='/login'
-					       render={() => <LoginPage/>}/>
+					       render={withSuspense(LoginPage)}/>
 				</div>
 				<div className={s.appFooter}>FOOTER</div>
 			</div>

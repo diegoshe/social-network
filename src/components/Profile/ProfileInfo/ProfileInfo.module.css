@@ -1,5 +1,5 @@
 .cover{
-    background-color: darkmagenta;
+    background-color: #fcff9d;
     display: grid;
     grid-template-areas:
     "coverAva status";
@@ -26,4 +26,7 @@
     margin: 10px 10px;
     background-color: white;
     border-radius: 10px;
+}
+.contact {
+    padding-left: 10px;
 }
